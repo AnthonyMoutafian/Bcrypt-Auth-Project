@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+    <div class="container">
+        <% if(typeof users !== 'undefined' && users.length > 0 && users[0].currentUser && Object.keys(users[0].currentUser).length > 0){%>       
+          <div>
+            <a class="link" href="/logout">Logout</a>
+          </div>
+        <%} else {%>
+          <div class="links-div">
+            <a class="link" href="/register-page">Register</a>
+            <a class="link" href="/login-page">Login</a>
+          </div>
+        <%}%>
+
+
+        <h1>Home Page</h1>
+        <h2>
+            Hello <%= (typeof users !== 'undefined' && users.length > 0 && users[0].currentUser && Object.keys(users[0].currentUser).length > 0) ? users[0].currentUser.name : "Guest" %>
+        </h2>
+    </div>
+</body>
+</html>
